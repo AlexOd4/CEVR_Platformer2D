@@ -36,8 +36,14 @@ public class PlayerMovementController : MonoBehaviour
     private void FixedUpdate()
     {
         //movemos al jugador a velocidad de andar o de correr dependiendo de si esta o no pulsando boton "Sprint"
-
+        if (!isOnJumpMode)
+        {
             if (inputPlayer.Sprint) MovePlayer(runVelocity); else MovePlayer(walkVelocity);
+        }
+        else
+        {
+            playerRb.linearVelocityX = 0;
+        }
     }
     
     private void MovePlayer(float velocity)
