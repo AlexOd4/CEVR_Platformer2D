@@ -42,17 +42,17 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Update()
     {
-        _direction = action.Move.ReadValue<Vector2>();
         if ((Mouse.current != null && Mouse.current.wasUpdatedThisFrame) || 
             (Touchscreen.current != null && Touchscreen.current.wasUpdatedThisFrame))
         {
-            Vector2 mousePosition = action.Look.ReadValue<Vector2>();
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(action.Look.ReadValue<Vector2>());
             Vector2 playerPosition = this.gameObject.transform.position;
             _lookAt = (mousePosition - playerPosition).normalized;
 
         }
         else if (Gamepad.current != null && Gamepad.current.wasUpdatedThisFrame)
         {
+            print("aqui NO");
             _lookAt = action.Look.ReadValue<Vector2>();
         }
         else
@@ -61,7 +61,13 @@ public class PlayerInputHandler : MonoBehaviour
             Debug.Log("ERROR INESPERADO NO USA NI TECLADO NI RATON");
         }
         _jump = action.Jump.IsPressed();
+        
+        if (!_jump ) _direction = action.Move.ReadValue<Vector2>();
+        else _direction = Vector2.zero;
+
         _sprint = action.Sprint.IsPressed();
+
+
         
     }
 }
