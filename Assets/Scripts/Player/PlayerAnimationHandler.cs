@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ public class PlayerAnimationHandler : MonoBehaviour
         anim = this.gameObject.GetComponent<Animator>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (inputPlayer.Direction.x > 0 && ground.IsGrounded)
         {
@@ -52,12 +53,6 @@ public class PlayerAnimationHandler : MonoBehaviour
 
         anim.SetBool("isFalling", !ground.IsGrounded);
 
-
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("player_endJumpMode"))
-        {
-            _isEndJumpMode = true;
-        }
-
         if (!_isEndJumpMode && !ground.IsGrounded) 
         {
             print("estoy");
@@ -77,5 +72,10 @@ public class PlayerAnimationHandler : MonoBehaviour
             anim.SetBool("isAttacking", false);
         }
 
+    }
+
+    public void Delay()
+    {
+        _isEndJumpMode = true;
     }
 }
