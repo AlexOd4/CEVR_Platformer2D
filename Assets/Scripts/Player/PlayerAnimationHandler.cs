@@ -8,6 +8,7 @@ public class PlayerAnimationHandler : MonoBehaviour
     private bool _isAttacking;
     public bool IsEndJumpMode { get { return _isEndJumpMode; } set { _isEndJumpMode = value; } }
 
+    [SerializeField] private PlayerMovementController movePlayer;
     [SerializeField] private PlayerInputHandler inputPlayer;
     [SerializeField] private FloorCollisionController ground;
     private Animator anim;
@@ -19,6 +20,7 @@ public class PlayerAnimationHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Flip player
         if (inputPlayer.Direction.x > 0 && ground.IsGrounded)
         {
             this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
@@ -28,39 +30,25 @@ public class PlayerAnimationHandler : MonoBehaviour
             this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
 
-
-
-        if (inputPlayer.Sprint && inputPlayer.Direction != Vector2.zero && ground.IsGrounded)
-        {
-            anim.SetBool("isRunning", true);
-            anim.SetBool("isWalking", false);
-        }
-        else if (!inputPlayer.Sprint && inputPlayer.Direction != Vector2.zero && ground.IsGrounded)
-        {
-            anim.SetBool("isRunning", false);
-            anim.SetBool("isWalking", true);
-        }
-        else if (inputPlayer.Direction == Vector2.zero && ground.IsGrounded)
-        {
-            anim.SetBool("isRunning", false);
-            anim.SetBool("isWalking", false);
-        }
-
         if (ground.IsGrounded)
         {
+
+            if (inputPlayer.Direction != Vector2.zero)
+            {
+                anim.SetBool("isRunning", inputPlayer.Sprint);
+                anim.SetBool("isWalking", !inputPlayer.Sprint);
+            }
+            else
+            {
+                anim.SetBool("isRunning", false);
+                anim.SetBool("isWalking", false);
+            }
+
             anim.SetBool("isJumpMode", inputPlayer.JumpMode);
         }
-
-        anim.SetBool("isFalling", !ground.IsGrounded);
-
-        if (!_isEndJumpMode && !ground.IsGrounded) 
+        else
         {
-            print("estoy");
-            _isAttacking = true;
-        }
-        else if (ground.IsGrounded)
-        {
-            _isAttacking = false;
+
         }
 
         if (_isAttacking && !ground.IsGrounded)
@@ -72,10 +60,13 @@ public class PlayerAnimationHandler : MonoBehaviour
             anim.SetBool("isAttacking", false);
         }
 
+        anim.SetBool("isFalling", !ground.IsGrounded);
+
     }
 
     public void Delay()
     {
         _isEndJumpMode = true;
     }
+
 }

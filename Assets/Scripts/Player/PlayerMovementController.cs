@@ -15,6 +15,18 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float runVelocity = 10;
     [SerializeField] private float impulseHeight = 5;
 
+    public float Velocity 
+    { get 
+        { 
+            if (ground.IsGrounded)
+            {
+                if (inputPlayer.Direction != Vector2.zero && inputPlayer.Sprint) return walkVelocity;
+                else if (inputPlayer.Direction != Vector2.zero && !inputPlayer.Sprint) return runVelocity;
+                else if (inputPlayer.Direction == Vector2.zero) return 0;
+            }
+            return 99;
+        } 
+    }
 
     private bool justReleasedJumpMode;
     public bool JustReleasedJumpMode { get { return justReleasedJumpMode; } }
@@ -64,5 +76,7 @@ public class PlayerMovementController : MonoBehaviour
         playerRb.AddForce(inputPlayer.LookAt * impulse, ForceMode2D.Impulse);
 
     }
+
+ 
     
 }
