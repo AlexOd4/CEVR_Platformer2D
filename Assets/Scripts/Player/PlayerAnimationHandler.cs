@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerAnimationHandler : MonoBehaviour
 {
-    private bool _isEndJumpMode;
-    private bool _isAttacking;
-    public bool IsEndJumpMode { get { return _isEndJumpMode; } set { _isEndJumpMode = value; } }
+    private int _extraForce = 0;
+    public int ExtraForce { get { return _extraForce; } set { _extraForce = value; } }
 
     [SerializeField] private PlayerMovementController movePlayer;
     [SerializeField] private PlayerInputHandler inputPlayer;
@@ -20,7 +19,18 @@ public class PlayerAnimationHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Flip player
+        flipPlayer();
+
+        anim.SetInteger("XMove", (int)Mathf.Round(movePlayer.Velocity.x));
+        anim.SetInteger("YMove", (int)Mathf.Round(movePlayer.Velocity.y));
+        anim.SetBool("isJumpMode", inputPlayer.JumpMode);
+        anim.SetBool("isRunning", inputPlayer.Sprint);
+        anim.SetBool("isGrounded", ground.IsGrounded);
+
+    }
+
+    private void flipPlayer()
+    {
         if (inputPlayer.Direction.x > 0 && ground.IsGrounded)
         {
             this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
@@ -29,44 +39,11 @@ public class PlayerAnimationHandler : MonoBehaviour
         {
             this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
-
-        if (ground.IsGrounded)
-        {
-
-            if (inputPlayer.Direction != Vector2.zero)
-            {
-                anim.SetBool("isRunning", inputPlayer.Sprint);
-                anim.SetBool("isWalking", !inputPlayer.Sprint);
-            }
-            else
-            {
-                anim.SetBool("isRunning", false);
-                anim.SetBool("isWalking", false);
-            }
-
-            anim.SetBool("isJumpMode", inputPlayer.JumpMode);
-        }
-        else
-        {
-
-        }
-
-        if (_isAttacking && !ground.IsGrounded)
-        {
-            anim.SetBool("isAttacking", true);
-        }
-        else
-        {
-            anim.SetBool("isAttacking", false);
-        }
-
-        anim.SetBool("isFalling", !ground.IsGrounded);
-
     }
 
-    public void Delay()
+    public void IsEndJumpModeToTrue()
     {
-        _isEndJumpMode = true;
+        if (_extraForce >= 50) _extraForce = 50;
+        else _extraForce += 5;
     }
-
 }

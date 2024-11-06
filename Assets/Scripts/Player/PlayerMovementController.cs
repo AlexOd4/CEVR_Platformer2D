@@ -5,28 +5,18 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour
 {
     [Header("Set Up parameters")]
-    private PlayerInputHandler inputPlayer;
     [SerializeField] private FloorCollisionController ground;
     [SerializeField] private PlayerAnimationHandler animHandler;
+    private PlayerInputHandler inputPlayer;
+    
     private Rigidbody2D playerRb;
+    public Vector2 Velocity { get { return playerRb.linearVelocity; } }
 
     [Header("Movement")]
     [SerializeField] private float walkVelocity = 5;
     [SerializeField] private float runVelocity = 10;
     [SerializeField] private float impulseHeight = 5;
 
-    public float Velocity 
-    { get 
-        { 
-            if (ground.IsGrounded)
-            {
-                if (inputPlayer.Direction != Vector2.zero && inputPlayer.Sprint) return walkVelocity;
-                else if (inputPlayer.Direction != Vector2.zero && !inputPlayer.Sprint) return runVelocity;
-                else if (inputPlayer.Direction == Vector2.zero) return 0;
-            }
-            return 99;
-        } 
-    }
 
     private bool justReleasedJumpMode;
     public bool JustReleasedJumpMode { get { return justReleasedJumpMode; } }
@@ -36,6 +26,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         inputPlayer = this.gameObject.GetComponent<PlayerInputHandler>();
         playerRb = this.gameObject.GetComponent<Rigidbody2D>();
+        
     }
 
 
@@ -44,19 +35,21 @@ public class PlayerMovementController : MonoBehaviour
         //movemos al jugador a velocidad de andar o de correr dependiendo de si esta o no pulsando boton "Sprint"
         if (!inputPlayer.JumpMode && ground.IsGrounded)
         {
-            if (justReleasedJumpMode && animHandler.IsEndJumpMode)
+            if (justReleasedJumpMode && animHandler.ExtraForce > 0)
             {
+                print(animHandler.ExtraForce);
                 justReleasedJumpMode = false;
-                animHandler.IsEndJumpMode = false;
-                ImpulsePlayer(impulseHeight);
+                ImpulsePlayer(impulseHeight + animHandler.ExtraForce);
+                animHandler.ExtraForce = 0;
             }
             else
             {
                 if (inputPlayer.Sprint) MovePlayer(runVelocity); else MovePlayer(walkVelocity);
+                animHandler.ExtraForce = 0;
             }
 
         }
-        else if (inputPlayer.JumpMode && ground.IsGrounded)
+        else if (inputPlayer.JumpMode && ground.IsGrounded && animHandler.ExtraForce == 0)
         {
             justReleasedJumpMode = true;
             playerRb.linearVelocityX = 0;
@@ -64,6 +57,8 @@ public class PlayerMovementController : MonoBehaviour
 
 
     }
+
+ 
     
     private void MovePlayer(float velocity)
     {
