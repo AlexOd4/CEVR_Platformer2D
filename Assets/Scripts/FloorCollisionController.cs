@@ -7,11 +7,15 @@ public class FloorCollisionController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        print("detected" + collision.gameObject.name);
         _isGrounded = true;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        print("fuera" + collision.gameObject.name);
         _isGrounded = false;
     }
+
+    
 }

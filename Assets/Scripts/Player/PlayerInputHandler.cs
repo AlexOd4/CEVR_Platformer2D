@@ -42,18 +42,21 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Update()
     {
-        if ((Mouse.current != null && Mouse.current.wasUpdatedThisFrame) || 
+        if (Gamepad.current != null && Gamepad.current.wasUpdatedThisFrame)
+        {
+            InputSystem.DisableDevice(Mouse.current);
+            if (action.Look.ReadValue<Vector2>() != Vector2.zero)
+            _lookAt = action.Look.ReadValue<Vector2>();
+            else _lookAt = Vector2.up;
+        }
+        else if ((Mouse.current != null && Mouse.current.wasUpdatedThisFrame) || 
             (Touchscreen.current != null && Touchscreen.current.wasUpdatedThisFrame))
         {
+            InputSystem.EnableDevice(Mouse.current);
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(action.Look.ReadValue<Vector2>());
             Vector2 playerPosition = this.gameObject.transform.position;
             _lookAt = (mousePosition - playerPosition).normalized;
 
-        }
-        else if (Gamepad.current != null && Gamepad.current.wasUpdatedThisFrame)
-        {
-            print("aqui NO");
-            _lookAt = action.Look.ReadValue<Vector2>();
         }
         else
         {
