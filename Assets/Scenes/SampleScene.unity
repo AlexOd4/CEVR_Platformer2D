@@ -860,6 +860,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4444696869412821855, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4873427026656550829, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
       propertyPath: m_TagString
       value: PlayerCollision
@@ -915,6 +919,10 @@ PrefabInstance:
     - target: {fileID: 7766628297875603847, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966429048087795035, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
