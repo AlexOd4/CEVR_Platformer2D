@@ -1,5 +1,3 @@
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
@@ -32,7 +30,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //movemos al jugador a velocidad de andar o de correr dependiendo de si esta o no pulsando boton "Sprint"
+        //Comprovamos si esta o no en JumpMode
         if (!inputPlayer.JumpMode && ground.IsGrounded)
         {
             if (justReleasedJumpMode && animHandler.ExtraForce > 0)
@@ -54,11 +52,7 @@ public class PlayerMovementController : MonoBehaviour
             justReleasedJumpMode = true;
             playerRb.linearVelocityX = 0;
         }
-
-
     }
-
- 
     
     private void MovePlayer(float velocity)
     {
@@ -71,7 +65,5 @@ public class PlayerMovementController : MonoBehaviour
         playerRb.AddForce(inputPlayer.LookAt * impulse, ForceMode2D.Impulse);
 
     }
-
- 
     
 }

@@ -666,6 +666,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3006070243613549663, guid: d5c00acb8dcfca94580a92732071bb51, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006070243613549663, guid: d5c00acb8dcfca94580a92732071bb51, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006610934730519052, guid: d5c00acb8dcfca94580a92732071bb51, type: 3}
+      propertyPath: enemyCrawler
+      value: 
+      objectReference: {fileID: 1517146824}
     - target: {fileID: 5184220548627915561, guid: d5c00acb8dcfca94580a92732071bb51, type: 3}
       propertyPath: m_Name
       value: EnemyCrawler
@@ -681,6 +693,14 @@ PrefabInstance:
     - target: {fileID: 6645380874440715453, guid: d5c00acb8dcfca94580a92732071bb51, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992508765844627599, guid: d5c00acb8dcfca94580a92732071bb51, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698574220495057655, guid: d5c00acb8dcfca94580a92732071bb51, type: 3}
+      propertyPath: m_Name
+      value: FloorTrigger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -821,6 +841,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1517146824 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6992508765844627599, guid: d5c00acb8dcfca94580a92732071bb51, type: 3}
+  m_PrefabInstance: {fileID: 644776675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ed1b568717d5349841f5993e2ad57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1672303114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -829,6 +860,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4873427026656550829, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
+      propertyPath: m_TagString
+      value: PlayerCollision
+      objectReference: {fileID: 0}
     - target: {fileID: 5986857170263606675, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -876,6 +911,10 @@ PrefabInstance:
     - target: {fileID: 6447924740197837856, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766628297875603847, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -10,51 +10,34 @@ public class EnemyCrawlerMovement : MonoBehaviour
 
 
     [Header("Floor Collisioners")]
-    [SerializeField] private FloorCollisionController floorCollision;
-    [SerializeField] private FloorCollisionController rightWallCollision;
-    [SerializeField] private FloorCollisionController leftWallCollision;
+    [SerializeField] private FloorTriggerController rightWallCollision;
+    [SerializeField] private FloorTriggerController leftWallCollision;
 
-    private Rigidbody2D rb2D;
     private float currentRotation;
-    private bool ignoreCollision;
-    private void Awake()
-    {
-        rb2D = this.GetComponent<Rigidbody2D>();
-    }
+
     private void FixedUpdate()
     {
         currentRotation = this.transform.rotation.eulerAngles.z;
-        CrawlingDetector();
-        rb2D.linearVelocityX = ((_moveLeft ? -1 : 1) * speed * Time.deltaTime);
+
+        this.transform.Translate(_moveLeft ? -speed * Time.deltaTime : speed * Time.deltaTime, 0, 0, Space.Self);
         
     }
 
-    private void CrawlingDetector()
+    public void CrawlingDetector()
     {
-        if (!floorCollision.IsGrounded)
+        print("disparo");
+        if (!(leftWallCollision.IsGrounded && rightWallCollision.IsGrounded))
         {
-            print("b");
-            if (!(leftWallCollision.IsGrounded && rightWallCollision.IsGrounded))
-            {
-                //this.transform.Rotate(new Vector3(0, 0, _moveLeft ? currentRotation + 90 : currentRotation - 90));
-                rb2D.MoveRotation(_moveLeft ? currentRotation + 90 : currentRotation - 90);
-            }
-            else if (!leftWallCollision.IsGrounded && rightWallCollision.IsGrounded)
-            {
-                //this.transform.Rotate(new Vector3(0, 0, currentRotation + 90));
-                rb2D.MoveRotation(currentRotation + 90);
-
-            }
-            else if (leftWallCollision.IsGrounded && !rightWallCollision.IsGrounded)
-            {
-                //this.transform.Rotate(new Vector3(0, 0, currentRotation - 90));
-                rb2D.MoveRotation(currentRotation - 90);
-            }
+            this.transform.Rotate(new Vector3(0, 0, _moveLeft ? 90 : -90));
         }
-        else
+        else if (!leftWallCollision.IsGrounded && rightWallCollision.IsGrounded)
         {
-            print("a");
-        
+            this.transform.Rotate(new Vector3(0, 0, currentRotation + 90));
+
+        }
+        else if (leftWallCollision.IsGrounded && !rightWallCollision.IsGrounded)
+        {
+            this.transform.Rotate(new Vector3(0, 0, currentRotation - 90));
         }
     }
 }

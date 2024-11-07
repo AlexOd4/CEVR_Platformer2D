@@ -98,10 +98,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1636239147138112593}
   - component: {fileID: 668298679040100674}
-  - component: {fileID: 2752235007909299307}
+  - component: {fileID: 4665162318857037760}
   m_Layer: 3
   m_Name: FloorCollision_Right
-  m_TagString: EnemyCrawler
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +119,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.5285, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1488263457395906702}
+  m_Father: {fileID: 6887111650787776478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &668298679040100674
 BoxCollider2D:
@@ -167,7 +167,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.03359759, y: 0.027670534}
   m_EdgeRadius: 0
---- !u!114 &2752235007909299307
+--- !u!114 &4665162318857037760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3715145968655988132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521639abb4b086949827944830ec08e7, type: 3}
+  m_Script: {fileID: 11500000, guid: bd0cb73d0c133fd48bf8a39c8fae18fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3808444940497606853
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 8385129314160980113}
   m_Layer: 0
   m_Name: EnemyCollision
-  m_TagString: EnemyCrawler
+  m_TagString: EnemyCrawlerCollision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 6992508765844627599}
   m_Layer: 0
   m_Name: EnemyCrawler
-  m_TagString: Untagged
+  m_TagString: EnemyCrawler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -289,9 +289,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2789240750946631406}
-  - {fileID: 8677520342008288600}
-  - {fileID: 1636239147138112593}
-  - {fileID: 577673751063426304}
+  - {fileID: 6887111650787776478}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3006070243613549663
@@ -335,9 +333,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   _moveLeft: 0
-  floorCollision: {fileID: 2743479610772510244}
-  rightWallCollision: {fileID: 2752235007909299307}
-  leftWallCollision: {fileID: 8710291787025833426}
+  floorCollision: {fileID: 5006610934730519052}
+  rightWallCollision: {fileID: 4665162318857037760}
+  leftWallCollision: {fileID: 3513720220387769647}
+--- !u!1 &6298856401114694653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6887111650787776478}
+  m_Layer: 3
+  m_Name: FloorCollisioner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6887111650787776478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6298856401114694653}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8677520342008288600}
+  - {fileID: 1636239147138112593}
+  - {fileID: 577673751063426304}
+  m_Father: {fileID: 1488263457395906702}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6600554070168433820
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,10 +380,10 @@ GameObject:
   m_Component:
   - component: {fileID: 577673751063426304}
   - component: {fileID: 6645380874440715453}
-  - component: {fileID: 8710291787025833426}
+  - component: {fileID: 3513720220387769647}
   m_Layer: 3
   m_Name: FloorCollision_Left
-  m_TagString: EnemyCrawler
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,7 +401,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.5285, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1488263457395906702}
+  m_Father: {fileID: 6887111650787776478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6645380874440715453
 BoxCollider2D:
@@ -417,7 +449,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.03359759, y: 0.027670534}
   m_EdgeRadius: 0
---- !u!114 &8710291787025833426
+--- !u!114 &3513720220387769647
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -426,7 +458,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6600554070168433820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521639abb4b086949827944830ec08e7, type: 3}
+  m_Script: {fileID: 11500000, guid: bd0cb73d0c133fd48bf8a39c8fae18fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8698574220495057655
@@ -439,10 +471,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8677520342008288600}
   - component: {fileID: 5227396300300214033}
-  - component: {fileID: 2743479610772510244}
+  - component: {fileID: 5006610934730519052}
   m_Layer: 3
   m_Name: FloorCollision_Floor
-  m_TagString: EnemyCrawler
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -460,7 +492,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.5285, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1488263457395906702}
+  m_Father: {fileID: 6887111650787776478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5227396300300214033
 BoxCollider2D:
@@ -508,7 +540,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.02767053, y: 0.03359759}
   m_EdgeRadius: 0
---- !u!114 &2743479610772510244
+--- !u!114 &5006610934730519052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -517,6 +549,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8698574220495057655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521639abb4b086949827944830ec08e7, type: 3}
+  m_Script: {fileID: 11500000, guid: ac17db68ec6f6db4b86047ad21b18e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
