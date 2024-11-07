@@ -4,8 +4,8 @@ using UnityEngine;
 public class EnemyCrawlerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float speed = 5.0f; 
-    [SerializeField] private bool _moveLeft; 
+    [SerializeField] private float speed = 5.0f;
+    [SerializeField] private bool _moveLeft;
     public bool MoveLeft { get { return _moveLeft; } }
 
 
@@ -27,29 +27,6 @@ public class EnemyCrawlerMovement : MonoBehaviour
 
     }
 
-
-
-    //private void CrawlingDetector()
-    //{
-    //    if (!floorCollision.IsGrounded)
-    //    {
-    //        if (!(leftWallCollision.IsGrounded && rightWallCollision.IsGrounded))
-    //        {
-    //            this.transform.Rotate(new Vector3(0, 0, _moveLeft ? currentRotation + 90 : currentRotation - 90));
-
-    //        }
-    //        else if (!leftWallCollision.IsGrounded && rightWallCollision.IsGrounded)
-    //        {
-    //            this.transform.Rotate(new Vector3(0, 0, currentRotation + 90));
-
-    //        }
-    //        else if (leftWallCollision.IsGrounded && !rightWallCollision.IsGrounded)
-    //        {
-    //            this.transform.Rotate(new Vector3(0, 0, currentRotation - 90));
-    //        }
-    //    }
-    //}
-
     private void CrawlingDetector()
     {
         if (!floorCollision.IsGrounded)
@@ -70,5 +47,4 @@ public class EnemyCrawlerMovement : MonoBehaviour
             }
         }
     }
-
 }
