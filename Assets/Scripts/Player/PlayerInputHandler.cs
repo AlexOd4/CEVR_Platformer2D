@@ -26,7 +26,7 @@ public class PlayerInputHandler : MonoBehaviour
     private void Awake()
     {
         input = new();
-        action = input.Player;
+        action = input.Player; 
     }
 
     private void OnEnable()

@@ -5,7 +5,7 @@ public class FloorCollisionController : MonoBehaviour
     private bool _isGrounded;
     public bool IsGrounded { get { return _isGrounded; } }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         print("detected" + collision.gameObject.name);
         _isGrounded = true;

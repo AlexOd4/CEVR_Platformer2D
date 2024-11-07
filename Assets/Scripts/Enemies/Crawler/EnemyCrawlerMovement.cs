@@ -14,37 +14,47 @@ public class EnemyCrawlerMovement : MonoBehaviour
     [SerializeField] private FloorCollisionController rightWallCollision;
     [SerializeField] private FloorCollisionController leftWallCollision;
 
+    private Rigidbody2D rb2D;
     private float currentRotation;
     private bool ignoreCollision;
     private void Awake()
     {
-        currentRotation = this.transform.rotation.eulerAngles.z;
+        rb2D = this.GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate()
     {
+        currentRotation = this.transform.rotation.eulerAngles.z;
         CrawlingDetector();
-        this.transform.Translate((_moveLeft ? Vector2.left : Vector2.right) * speed * Time.deltaTime);
-
+        rb2D.linearVelocityX = ((_moveLeft ? -1 : 1) * speed * Time.deltaTime);
+        
     }
 
     private void CrawlingDetector()
     {
         if (!floorCollision.IsGrounded)
         {
+            print("b");
             if (!(leftWallCollision.IsGrounded && rightWallCollision.IsGrounded))
             {
-                this.transform.Rotate(new Vector3(0, 0, _moveLeft ? currentRotation + 90 : currentRotation - 90));
-
+                //this.transform.Rotate(new Vector3(0, 0, _moveLeft ? currentRotation + 90 : currentRotation - 90));
+                rb2D.MoveRotation(_moveLeft ? currentRotation + 90 : currentRotation - 90);
             }
             else if (!leftWallCollision.IsGrounded && rightWallCollision.IsGrounded)
             {
-                this.transform.Rotate(new Vector3(0, 0, currentRotation + 90));
+                //this.transform.Rotate(new Vector3(0, 0, currentRotation + 90));
+                rb2D.MoveRotation(currentRotation + 90);
 
             }
             else if (leftWallCollision.IsGrounded && !rightWallCollision.IsGrounded)
             {
-                this.transform.Rotate(new Vector3(0, 0, currentRotation - 90));
+                //this.transform.Rotate(new Vector3(0, 0, currentRotation - 90));
+                rb2D.MoveRotation(currentRotation - 90);
             }
+        }
+        else
+        {
+            print("a");
+        
         }
     }
 }
