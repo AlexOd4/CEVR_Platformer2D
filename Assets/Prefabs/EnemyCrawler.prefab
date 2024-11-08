@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 1636239147138112593}
   - component: {fileID: 668298679040100674}
   - component: {fileID: 4665162318857037760}
+  - component: {fileID: 5750702837633451837}
   m_Layer: 3
   m_Name: FloorCollision_Right
   m_TagString: Untagged
@@ -179,6 +180,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd0cb73d0c133fd48bf8a39c8fae18fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5750702837633451837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3715145968655988132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac17db68ec6f6db4b86047ad21b18e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyCrawler: {fileID: 6992508765844627599}
+  isSide: 1
 --- !u!1 &3808444940497606853
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +348,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   _moveLeft: 0
-  floorCollision: {fileID: 5006610934730519052}
   rightWallCollision: {fileID: 4665162318857037760}
   leftWallCollision: {fileID: 3513720220387769647}
 --- !u!1 &6298856401114694653
@@ -381,6 +395,7 @@ GameObject:
   - component: {fileID: 577673751063426304}
   - component: {fileID: 6645380874440715453}
   - component: {fileID: 3513720220387769647}
+  - component: {fileID: 2723630880851157497}
   m_Layer: 3
   m_Name: FloorCollision_Left
   m_TagString: Untagged
@@ -461,6 +476,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd0cb73d0c133fd48bf8a39c8fae18fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2723630880851157497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6600554070168433820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac17db68ec6f6db4b86047ad21b18e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyCrawler: {fileID: 6992508765844627599}
+  isSide: 1
 --- !u!1 &8698574220495057655
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,3 +581,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac17db68ec6f6db4b86047ad21b18e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyCrawler: {fileID: 6992508765844627599}
+  isSide: 0
