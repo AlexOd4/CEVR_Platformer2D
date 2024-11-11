@@ -35,7 +35,6 @@ public class PlayerMovementController : MonoBehaviour
         {
             if (justReleasedJumpMode && animHandler.ExtraForce > 0)
             {
-                print(animHandler.ExtraForce);
                 justReleasedJumpMode = false;
                 ImpulsePlayer(impulseHeight + animHandler.ExtraForce);
                 animHandler.ExtraForce = 0;

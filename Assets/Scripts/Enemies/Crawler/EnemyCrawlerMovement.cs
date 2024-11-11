@@ -27,7 +27,6 @@ public class EnemyCrawlerMovement : HealthSystem
 
     public void CrawlingDetector(bool wallCollision)
     {
-        print("disparo");
         if (wallCollision)
         {
             this.transform.Rotate(new Vector3(0, 0, _moveLeft ? 90 : -90));

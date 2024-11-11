@@ -46,4 +46,5 @@ public class PlayerAnimationHandler : MonoBehaviour
         if (_extraForce >= 50) _extraForce = 50;
         else _extraForce += 5;
     }
+
 }
