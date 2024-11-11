@@ -16,7 +16,7 @@ public class HealthSystem : MonoBehaviour
         Mathf.Clamp(life, 0, maxLife);
     }
     
-    public void Hit(int hitDamage)
+    public void Hit(int hitDamage = 0)
     {
         life -= hitDamage;
         if (isDead() && !this.gameObject.CompareTag("Player"))
@@ -28,7 +28,8 @@ public class HealthSystem : MonoBehaviour
 
     public void Kill() 
     {
-        life = 0; 
+        life = 0;
+        Hit();
     }
 
     private bool isDead()

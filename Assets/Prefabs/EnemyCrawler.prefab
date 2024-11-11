@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 3289714856825983117}
   - component: {fileID: 6420951830625186990}
   m_Layer: 0
-  m_Name: EnemyCrawler 1
+  m_Name: EnemyCrawler
   m_TagString: EnemyCrawler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -13,11 +13,14 @@ public class EnemyFollowerMovement : MonoBehaviour
 
     [Header("Movement Parameters")]
     private float baseSpeed;
-    [SerializeField] private float speed;
-    [SerializeField] private float speedMultiplier = 1.5f;
+    [SerializeField] private float speed = 50.0f;
+    [SerializeField] private float chaseSpeed = 75.0f;
     [SerializeField] private float seekUpdate = 0.75f;
 
-    private Vector2 playerLastPosition;
+    [Header("Damage Parameter")]
+    [SerializeField] private int _damage = 5;
+    public int Damage { get { return _damage; } }
+
     private Vector2 enemyDirection;
     private bool invoker = true;
 
@@ -33,17 +36,16 @@ public class EnemyFollowerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //It has a little delay to follow you
-        if (invoker)
-        {
-            invoker = false;
-            Invoke(nameof(SetPlayerLastPosition), seekUpdate);
-        }
 
         if (_isChasing) //If is Chasing the player it will take as enemyDirection player 
         {
-            speed *= speedMultiplier;
-            enemyDirection = (playerTransform.position - this.transform.position).normalized;
+            //It has a little delay to follow you
+            if (invoker)
+            {
+                invoker = false;
+                Invoke(nameof(SetPlayerLastPosition), seekUpdate);
+            }
+            speed = chaseSpeed;
         }
         else //If is NOT Chasing it will be in patrol mode
         {
@@ -54,6 +56,16 @@ public class EnemyFollowerMovement : MonoBehaviour
 
         //We applyes the movement and direction of the Enemy
         rb2D.linearVelocity =  enemyDirection * speed * Time.deltaTime;
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        print(collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("PlayerCollision"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 
@@ -87,7 +99,8 @@ public class EnemyFollowerMovement : MonoBehaviour
     /// </summary>
     private void SetPlayerLastPosition()
     {
-        playerLastPosition = playerTransform.position;
         invoker = true;
+        enemyDirection = (playerTransform.position - this.transform.position).normalized;
+
     }
 }
