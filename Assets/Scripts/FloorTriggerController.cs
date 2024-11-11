@@ -7,14 +7,12 @@ public class FloorTriggerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("detected" + collision.gameObject.name);
         _isGrounded = true;
 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        print("fuera" + collision.gameObject.name);
         _isGrounded = false;
     }
 }
