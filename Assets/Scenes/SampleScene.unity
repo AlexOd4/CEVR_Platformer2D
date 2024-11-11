@@ -691,6 +691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 685711079}
   - component: {fileID: 685711080}
+  - component: {fileID: 685711081}
   m_Layer: 0
   m_Name: EnemyCollider
   m_TagString: Untagged
@@ -759,6 +760,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.0922651, y: 0.6063913}
   m_EdgeRadius: 0
+--- !u!114 &685711081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685711078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2529f94424c3e44195cd5f2903b4e73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &697692930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,6 +1073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 10
   jumpRate: 2
+  _damage: 5
 --- !u!61 &962447050
 BoxCollider2D:
   m_ObjectHideFlags: 0
