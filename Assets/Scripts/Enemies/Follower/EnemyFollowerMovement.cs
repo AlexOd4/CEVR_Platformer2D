@@ -1,16 +1,21 @@
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class EnemyFollowerMovement : MonoBehaviour
 {
     [Header("Set Up Parameters")]
-    [SerializeField] private Transform playerTransform;
     [SerializeField] private Rigidbody2D rb2D;
     [SerializeField] private Transform[] patrolPoints;
+    private Transform playerTransform;
     private int patrolIndex;
     private Vector2 patrolPointDistance;
 
     [Header("Movement Parameters")]
-    [SerializeField] private int speed;
+    private float baseSpeed;
+    [SerializeField] private float speed;
+    [SerializeField] private float speedMultiplier = 1.5f;
+    [SerializeField] private float seekUpdate = 0.75f;
 
     private Vector2 playerLastPosition;
     private Vector2 enemyDirection;
@@ -21,46 +26,65 @@ public class EnemyFollowerMovement : MonoBehaviour
 
     private void Awake()
     {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         patrolPointDistance = patrolPoints[0].position;
+        baseSpeed = speed;
     }
 
     private void FixedUpdate()
     {
+        //It has a little delay to follow you
         if (invoker)
         {
             invoker = false;
-            Invoke(nameof(SetPlayerLastPosition), 0.5f);
+            Invoke(nameof(SetPlayerLastPosition), seekUpdate);
         }
 
-        if (_isChasing)
+        if (_isChasing) //If is Chasing the player it will take as enemyDirection player 
         {
+            speed *= speedMultiplier;
             enemyDirection = (playerTransform.position - this.transform.position).normalized;
-
         }
-        else
+        else //If is NOT Chasing it will be in patrol mode
         {
-            for (int i = 0; i < patrolPoints.Length; i++)
-            {
-                if (Vector2.Distance(patrolPoints[i].position, this.transform.position) < Vector2.Distance(patrolPointDistance, this.transform.position))
-                {
-                    patrolPointDistance = patrolPoints[i].position;
-                    patrolIndex = i;
-                }
-            }
-
-            if (Vector2.Distance(patrolPoints[patrolIndex].position, this.transform.position) <= 1.0f)
-            {
-                patrolIndex++;
-            }
-
-            //TODO Ponerlo en cero
-
+            speed = baseSpeed;
+            EnemyPatrol();
             enemyDirection = (patrolPoints[patrolIndex].position - this.transform.position).normalized;
-
         }
+
+        //We applyes the movement and direction of the Enemy
         rb2D.linearVelocity =  enemyDirection * speed * Time.deltaTime;
     }
 
+
+
+    /// <summary>
+    /// It looks for the nearest point and patrol to it straight line, also sets new patrol point when is reached
+    /// </summary>
+    private void EnemyPatrol()
+    {
+        //Buscamos el punto más cercano al que volver
+        for (int i = 0; i < patrolPoints.Length; i++)
+        {
+            if (Vector2.Distance(patrolPoints[i].position, this.transform.position) < Vector2.Distance(patrolPointDistance, this.transform.position))
+            {
+                patrolPointDistance = patrolPoints[i].position;
+                patrolIndex = i;
+            }
+        }
+
+        if (Vector2.Distance(patrolPoints[patrolIndex].position, this.transform.position) <= 1.0f)
+        {
+            patrolIndex++;
+        }
+
+        if (patrolIndex >= patrolPoints.Length)
+            patrolIndex = 0;
+    }
+
+    /// <summary>
+    /// Update last position of the player
+    /// </summary>
     private void SetPlayerLastPosition()
     {
         playerLastPosition = playerTransform.position;

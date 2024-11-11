@@ -11,7 +11,7 @@ public class EnemyCrawlerMovement : HealthSystem
 
     private float currentRotation;
 
-    private void Awake()
+    private new void Awake()
     {
         if (_moveLeft)
         {
