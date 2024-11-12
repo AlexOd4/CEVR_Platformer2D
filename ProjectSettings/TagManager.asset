@@ -9,6 +9,7 @@ TagManager:
   - EnemySider
   - EnemyFollower
   - EnemyJumper
+  - SelectedButton
   layers:
   - Default
   - TransparentFX
