@@ -7,6 +7,10 @@ public class PlayerAttackController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<HealthSystem>() != null)
+        {
+            print(collision.gameObject.tag);
             collision.gameObject.GetComponent<HealthSystem>().Hit(damage);
+
+        }
     }
 }
