@@ -1310,14 +1310,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4444696869412821855, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444696869412821855, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
-      propertyPath: m_LayerOverridePriority
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4873427026656550829, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
       propertyPath: m_TagString
       value: PlayerCollision
@@ -1377,30 +1369,6 @@ PrefabInstance:
     - target: {fileID: 7766628297875603847, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7786198696482063163, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8348662790005828253, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 8348662790005828253, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
-      propertyPath: m_IncludeLayers.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8694176923698085994, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
-      propertyPath: life
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8834871187879979543, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8966429048087795035, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
