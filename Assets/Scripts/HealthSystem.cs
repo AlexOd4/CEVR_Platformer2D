@@ -22,8 +22,15 @@ public class HealthSystem : MonoBehaviour
         if (isDead() && !this.gameObject.CompareTag("Player"))
             Destroy(this.gameObject);
 
-        else if (isDead() && this.gameObject.CompareTag("Player")) 
-            print("Me he muelto"); //TODO Hacer el sistema de perder y que te lleve al menú de vuelta (Llamaría a una función de un GameManager ó MenuManager)
+        else if (isDead() && this.gameObject.CompareTag("Player"))
+        {
+            print("Me he muelto");
+
+            this.gameObject.GetComponent<PlayerMovementController>().enabled = false;
+            this.gameObject.GetComponent<PlayerInputHandler>().enabled = false;
+
+        }
+        //TODO Hacer el sistema de perder y que te lleve al menú de vuelta (Llamaría a una función de un GameManager ó MenuManager)
     }
 
     public void Kill() 

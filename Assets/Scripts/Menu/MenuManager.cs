@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
@@ -9,9 +9,33 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject[] menuPanels;
     [SerializeField] Animator anim;
 
+    [Header("Level Buttons")]
+    [SerializeField] Button[] levelButton;
+
     private void Awake()
     {
-        //LocalLevelSelection = GameManager.LevelSelection;
+        GameManager.Instance.Load();
+
+        InteractableButton();
+    }
+
+    /// <summary>
+    /// It looks for the quantity of level achieved and activate the buttons to be interactable 
+    /// for each level 
+    /// </summary>
+    private void InteractableButton()
+    {
+        print("o");
+        for (int i = 0; i <= GameManager.Instance.level; i++)
+        {
+            print("b");
+
+            if (i < levelButton.Length)
+            {
+                print("a");
+                levelButton[i].interactable = true;
+            }
+        }
     }
 
     public void SwitchPanel(GameObject switchPanel)
@@ -23,7 +47,7 @@ public class MenuManager : MonoBehaviour
 
         switchPanel.SetActive(true);
 
-        GameManager.Instance.FindChildByTag(switchPanel.transform, "SelectedButton").gameObject.GetComponent<Button>();
+        GameManager.Instance.FindChildByTag(switchPanel.transform, "SelectedButton").gameObject.GetComponent<Button>().Select();
     }
 
     public void ChangeSceneWithAnimation(String level)

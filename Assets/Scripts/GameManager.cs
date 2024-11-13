@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    #region SET UP GAMEMANAGER
     private static GameManager _instance;
     public static GameManager Instance
     {
@@ -22,7 +23,13 @@ public class GameManager : MonoBehaviour
     }
     private GameManager() { }
 
-    //LevelSelector
+    #endregion
+
+
+    #region Level Selector
+
+    public int level = 1;
+
     public enum LevelSelection
     {
         None,
@@ -38,15 +45,51 @@ public class GameManager : MonoBehaviour
         switch (currentLevel)
         {
             case LevelSelection.Level01:
+                if (level < 1)
+                    level = 1;
                 return "level";
             case LevelSelection.Level02:
+                if (level < 2)
+                    level = 2;
                 return "level";
             case LevelSelection.Level03:
+                if (level < 3)
+                    level = 3;
                 return "level";
         }
+        level = 1;
         return "none";
     }
+    #endregion
 
+    public int globalScore = 0;
+    public int[] levelScore = new int[0];
+
+
+    
+    
+    public void Save()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void Load()
+    {
+
+        PlayerData data = SaveSystem.LoadPlayer();
+        if (data == null)
+        {
+            Save();
+            data = SaveSystem.LoadPlayer();
+        }
+
+        level = data.level;
+        globalScore = data.globalScore;
+        levelScore = data.levelScore;
+    }
+    
+    
+    
     /// <summary>
     /// Looks for a child in the object with an specific tag
     /// </summary>

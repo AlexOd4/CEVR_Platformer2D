@@ -1,18 +1,12 @@
 using UnityEngine;
 
-public class EnemyJumperTrigger : MonoBehaviour
+public class EnemySiderAttackTrigger : MonoBehaviour
 {
-    private EnemyJumperMovement enemyMove;
-    private void Awake()
-    {
-        enemyMove = transform.parent.GetComponent<EnemyJumperMovement>();
-    }
-
+    [SerializeField] EnemySiderMovement enemyMove;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PlayerCollision"))
         {
-            print("tePiego Jumper");
             collision.transform.parent.transform.parent.GetComponent<HealthSystem>().Hit(enemyMove.Damage);
         }
     }

@@ -1,8 +1,11 @@
 using UnityEditor.UI;
 using UnityEngine;
 
-public class EnemyCrawlerMovement : HealthSystem
+public class EnemyCrawlerMovement : MonoBehaviour
 {
+    [Header("Enemy Properties")]
+    [SerializeField] private int damage = 5;
+
     [Header("Movement")]
     [SerializeField] private float speed = 5.0f;
     [SerializeField] private bool _moveLeft;
@@ -30,6 +33,15 @@ public class EnemyCrawlerMovement : HealthSystem
         if (wallCollision)
         {
             this.transform.Rotate(new Vector3(0, 0, _moveLeft ? 90 : -90));
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerCollision"))
+        {
+            collision.transform.parent.transform.parent.GetComponent<HealthSystem>().Hit(damage);
+            print("tePiega Crawler");
         }
     }
 }

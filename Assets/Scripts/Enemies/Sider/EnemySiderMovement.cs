@@ -3,6 +3,10 @@ using UnityEngine.UIElements;
 
 public class EnemySiderMovement : MonoBehaviour
 {
+    [Header("Enemy Properties")]
+    [SerializeField] private int _damage = 5;
+    public int Damage { get { return _damage; } }
+
     [Header("Movement")]
     [SerializeField] private float speed = 5.0f;
     [SerializeField] private bool _moveLeft;
@@ -15,4 +19,5 @@ public class EnemySiderMovement : MonoBehaviour
     {
         this.transform.Translate(_moveLeft ? -speed * Time.deltaTime : speed * Time.deltaTime, 0, 0);    
     }
+
 }
