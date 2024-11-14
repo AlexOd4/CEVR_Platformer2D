@@ -1,16 +1,18 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HUDController : MonoBehaviour
 {
     [SerializeField] GameObject player;
     [SerializeField] Slider heartSlider;
+    [SerializeField] TMP_Text scoreText;
     private void Update()
     {
-        //if (player.GetComponent<HealthSystem>().Life <= 0)
-            heartSlider.value = player.GetComponent<HealthSystem>().Life;
-        //else
-        //    heartSlider.value = player.GetComponent<HealthSystem>().Life + 5;
+        heartSlider.value = player.GetComponent<HealthSystem>().Life;
+
+        scoreText.text = "SCORE: " + GameManager.Instance.currentScore.ToString("D5");
 
     }
 }

@@ -25,14 +25,10 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     private void InteractableButton()
     {
-        print("o");
         for (int i = 0; i <= GameManager.Instance.level; i++)
         {
-            print("b");
-
             if (i < levelButton.Length)
             {
-                print("a");
                 levelButton[i].interactable = true;
             }
         }

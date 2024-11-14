@@ -8,9 +8,20 @@ public class PlayerAttackController : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<HealthSystem>() != null)
         {
-            print(collision.gameObject.tag);
-            collision.gameObject.GetComponent<HealthSystem>().Hit(damage);
+            if (collision.gameObject.CompareTag("EnemyCrawler"))
+                GameManager.Instance.currentScore += 520;
+            else if (collision.gameObject.CompareTag("EnemySider"))
+                GameManager.Instance.currentScore += 750;
+            else if (collision.gameObject.CompareTag("EnemyFollower"))
+                GameManager.Instance.currentScore += 1030;
+            else if (collision.gameObject.CompareTag("EnemyJumper"))
+                GameManager.Instance.currentScore += 1500;
+            else
+                print(collision.gameObject.tag);
+                GameManager.Instance.currentScore += 200;
 
+
+            collision.gameObject.GetComponent<HealthSystem>().Hit(damage);
         }
     }
 }

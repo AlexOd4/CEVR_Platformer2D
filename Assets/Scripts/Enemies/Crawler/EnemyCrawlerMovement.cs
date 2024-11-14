@@ -41,7 +41,6 @@ public class EnemyCrawlerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerCollision"))
         {
             collision.transform.parent.transform.parent.GetComponent<HealthSystem>().Hit(damage);
-            print("tePiega Crawler");
         }
     }
 }

@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public int globalScore = 0;
+    public int currentScore = 0;
     public int[] levelScore = new int[0];    
     
     public void Save()
