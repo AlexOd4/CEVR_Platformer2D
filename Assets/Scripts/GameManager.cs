@@ -63,10 +63,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public int globalScore = 0;
-    public int[] levelScore = new int[0];
-
-
-    
+    public int[] levelScore = new int[0];    
     
     public void Save()
     {
@@ -107,5 +104,19 @@ public class GameManager : MonoBehaviour
         }
         return null;
     }
+
+    /// <summary>
+    /// Normalize a range of numers between its minimum "min" and maximum "max"
+    /// </summary>
+    /// <param name="value"> Value to be normalized </param>
+    /// <param name="min"> min value of the range </param>
+    /// <param name="max"> max value of the range </param>
+    /// <returns></returns>
+    public float NormalizeFloat(float value, float min, float max)
+    {
+        return (value - min) / (max - min);
+    }
+
+
 
 }

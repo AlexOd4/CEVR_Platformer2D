@@ -3,6 +3,8 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] private int life;
+    public int Life { get { return life; } }
+
     private int maxLife;
 
     public void Awake()

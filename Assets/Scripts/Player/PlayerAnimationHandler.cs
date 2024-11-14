@@ -12,6 +12,9 @@ public class PlayerAnimationHandler : MonoBehaviour
     [SerializeField] private FloorCollisionController ground;
     private Animator anim;
 
+    [SerializeField] private GameObject arrow;
+    [SerializeField] private SpriteRenderer arrowFill;
+
     private void Start()
     {
         anim = this.gameObject.GetComponent<Animator>();
@@ -26,7 +29,27 @@ public class PlayerAnimationHandler : MonoBehaviour
         anim.SetBool("isJumpMode", inputPlayer.JumpMode);
         anim.SetBool("isRunning", inputPlayer.Sprint);
         anim.SetBool("isGrounded", ground.IsGrounded);
+        ArrowPoint();
+    }
 
+    private void ArrowPoint()
+    {
+        if (inputPlayer.JumpMode)
+        {
+            arrow.SetActive(true);
+
+            // Calculate the angle of the normalized Vector 2 and pass it to degrees
+            float angle = Mathf.Atan2(inputPlayer.LookAt.y, inputPlayer.LookAt.x) * Mathf.Rad2Deg; 
+            arrow.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90.0f));
+
+            // We change its height to change the status of extraforce (the image is in DrawMode.Tiled)
+            arrowFill.size = new Vector2(arrowFill.size.x, 
+                             GameManager.Instance.NormalizeFloat(ExtraForce, 0, 50));
+        }
+        else
+        {
+            arrow.SetActive(false);
+        }
     }
 
     private void flipPlayer()
