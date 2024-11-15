@@ -207,7 +207,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9d53b0a2bd18eca4b938707cfa1d4e37, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 72
@@ -231,7 +231,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.006205559, y: 1.913895}
+  m_Offset: {x: 0.043973625, y: 1.9138951}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -241,8 +241,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.6753924, y: 1.905096}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.5620112, y: 1.7470702}
+  m_EdgeRadius: 0.09
 --- !u!1 &5888705122787117404
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ground: {fileID: 4527332207046726154}
   animHandler: {fileID: 6326898979074997375}
+  rbPhysics: {fileID: 6200000, guid: 64952f63db00b8d468479b8c23d02dae, type: 2}
   walkVelocity: 5
   runVelocity: 8
   impulseHeight: 80

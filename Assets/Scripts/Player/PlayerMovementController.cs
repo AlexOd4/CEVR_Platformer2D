@@ -6,7 +6,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private FloorCollisionController ground;
     [SerializeField] private PlayerAnimationHandler animHandler;
     private PlayerInputHandler inputPlayer;
-    
+
     private Rigidbody2D playerRb;
     public Vector2 Velocity { get { return playerRb.linearVelocity; } }
 
@@ -24,7 +24,6 @@ public class PlayerMovementController : MonoBehaviour
     {
         inputPlayer = this.gameObject.GetComponent<PlayerInputHandler>();
         playerRb = this.gameObject.GetComponent<Rigidbody2D>();
-        
     }
 
 

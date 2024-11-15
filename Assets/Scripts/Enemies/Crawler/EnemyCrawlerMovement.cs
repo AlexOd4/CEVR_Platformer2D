@@ -14,11 +14,12 @@ public class EnemyCrawlerMovement : MonoBehaviour
 
     private float currentRotation;
 
-    private new void Awake()
+    private void Awake()
     {
         if (_moveLeft)
         {
             wallCollisionBox.offset = -wallCollisionBox.offset;
+            this.GetComponentInChildren<SpriteRenderer>().flipX = true;
         }
     }
     private void FixedUpdate()
@@ -32,7 +33,7 @@ public class EnemyCrawlerMovement : MonoBehaviour
     {
         if (wallCollision)
         {
-            this.transform.Rotate(new Vector3(0, 0, _moveLeft ? 90 : -90));
+            this.transform.Rotate(new Vector3(0, 0, _moveLeft ? -90 : 90));
         }
     }
 

@@ -3,7 +3,8 @@ using UnityEngine;
 public class PlayerAttackController : MonoBehaviour
 {
     [SerializeField] private int damage;
-    
+    [SerializeField] private GameObject particle;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<HealthSystem>() != null)
@@ -20,7 +21,9 @@ public class PlayerAttackController : MonoBehaviour
                 print(collision.gameObject.tag);
                 GameManager.Instance.currentScore += 200;
 
-
+            if (collision.gameObject.GetComponentInChildren<SpriteRenderer>() != null)
+                collision.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+            Instantiate(particle, collision.gameObject.transform.position, Quaternion.identity);
             collision.gameObject.GetComponent<HealthSystem>().Hit(damage);
         }
     }
