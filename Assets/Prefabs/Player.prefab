@@ -174,7 +174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5363509957750253269}
-  - component: {fileID: 8966429048087795035}
+  - component: {fileID: 7582021372007194102}
   m_Layer: 3
   m_Name: WallCollisioner
   m_TagString: Untagged
@@ -197,8 +197,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 70156996356884144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &8966429048087795035
-BoxCollider2D:
+--- !u!70 &7582021372007194102
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -231,18 +231,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.043973625, y: 1.9138951}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.5620112, y: 1.7470702}
-  m_EdgeRadius: 0.09
+  m_Offset: {x: 0.047711134, y: 1.8607349}
+  m_Size: {x: 0.7317395, y: 2.0223808}
+  m_Direction: 0
 --- !u!1 &5888705122787117404
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +301,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.046415985, y: 0.97668564}
+  m_Offset: {x: 0.046416044, y: 0.74650836}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -320,8 +311,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.3760475, y: 0.57263446}
-  m_EdgeRadius: 0.03
+  m_Size: {x: 0.17573881, y: 0.00258106}
+  m_EdgeRadius: 0.1
 --- !u!114 &4527332207046726154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +417,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ground: {fileID: 4527332207046726154}
   animHandler: {fileID: 6326898979074997375}
-  rbPhysics: {fileID: 6200000, guid: 64952f63db00b8d468479b8c23d02dae, type: 2}
   walkVelocity: 5
   runVelocity: 8
   impulseHeight: 80
@@ -753,3 +743,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  particle: {fileID: 0}

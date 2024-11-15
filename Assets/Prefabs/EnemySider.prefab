@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 1504773787035481296}
   - component: {fileID: 3744945493260666402}
   - component: {fileID: 3322673227905618010}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemySider
   m_TagString: EnemySider
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 5
-  speed: 5
+  speed: 1
   _moveLeft: 1
 --- !u!1 &5357957666419396787
 GameObject:
