@@ -5,6 +5,9 @@ public class EnemyJumperMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 10.0f;
     [SerializeField] private float jumpRate = 1.0f;
     [SerializeField] private int _damage = 5;
+    [SerializeField] private int _pushForce = 1000;
+
+    public int PushForce { get { return _pushForce; } }
     public int Damage { get { return _damage; } }
     
     private Transform playerTransform;

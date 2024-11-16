@@ -19,6 +19,9 @@ public class EnemyFollowerMovement : MonoBehaviour
 
     [Header("Damage Parameter")]
     [SerializeField] private int _damage = 5;
+    [SerializeField] private int _pushForce = 1000;
+
+    public int PushForce { get { return _pushForce; } }
     public int Damage { get { return _damage; } }
 
     private Vector2 enemyDirection;

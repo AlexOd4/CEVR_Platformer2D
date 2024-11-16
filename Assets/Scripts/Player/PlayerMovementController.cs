@@ -63,5 +63,15 @@ public class PlayerMovementController : MonoBehaviour
         playerRb.AddForce(inputPlayer.LookAt * impulse, ForceMode2D.Impulse);
 
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("HealObject") && 
+            GetComponent<HealthSystem>().Life < GetComponent<HealthSystem>().MaxLife)
+        {
+            this.gameObject.GetComponent<HealthSystem>().Heal(10);
+            Destroy(collision.gameObject);
+        }
+    }
+
 }

@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 6419122872166557958}
   m_Layer: 0
   m_Name: playerCollision
-  m_TagString: Untagged
+  m_TagString: PlayerCollision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -561,6 +561,7 @@ MonoBehaviour:
   movePlayer: {fileID: 7786198696482063163}
   inputPlayer: {fileID: 8834871187879979543}
   ground: {fileID: 4527332207046726154}
+  attackCollision: {fileID: 7766628297875603847}
   arrow: {fileID: 6568667510398527045}
   arrowFill: {fileID: 1808520790647863466}
 --- !u!1 &6568667510398527045
@@ -718,7 +719,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.049988, y: 1.6305}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -728,7 +729,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.79, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &4270420241857334585
 MonoBehaviour:

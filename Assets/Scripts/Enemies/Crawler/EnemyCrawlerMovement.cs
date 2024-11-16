@@ -5,6 +5,7 @@ public class EnemyCrawlerMovement : MonoBehaviour
 {
     [Header("Enemy Properties")]
     [SerializeField] private int damage = 5;
+    [SerializeField] private int pushForce = 50;
 
     [Header("Movement")]
     [SerializeField] private float speed = 5.0f;
@@ -32,9 +33,9 @@ public class EnemyCrawlerMovement : MonoBehaviour
     public void CrawlingDetector(bool wallCollision)
     {
         if (wallCollision)
-        {
             this.transform.Rotate(new Vector3(0, 0, _moveLeft ? -90 : 90));
-        }
+        else
+            this.transform.Rotate(new Vector3(0, 0, _moveLeft ? 90 : -90));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,6 +43,8 @@ public class EnemyCrawlerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerCollision"))
         {
             collision.transform.parent.transform.parent.GetComponent<HealthSystem>().Hit(damage);
+            collision.transform.parent.transform.parent.GetComponent<Rigidbody2D>().AddForce(
+                (collision.transform.parent.transform.parent.position - this.gameObject.transform.position).normalized * pushForce);
         }
     }
 }

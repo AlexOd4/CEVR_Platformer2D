@@ -9,7 +9,7 @@ public class EnemyFloorTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isSide)
-        enemyCrawler.CrawlingDetector(true);
+        enemyCrawler.CrawlingDetector(isSide);
 
     }
 
@@ -19,7 +19,7 @@ public class EnemyFloorTrigger : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (!isSide)
-        enemyCrawler.CrawlingDetector(true);
+        enemyCrawler.CrawlingDetector(isSide);
 
     }
 }

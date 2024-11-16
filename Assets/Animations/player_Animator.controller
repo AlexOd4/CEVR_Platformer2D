@@ -546,7 +546,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 8058842164946912491}
-    m_Position: {x: 240, y: 110, z: 0}
+    m_Position: {x: 240, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5066329007859137762}
     m_Position: {x: 780, y: -40, z: 0}
@@ -619,6 +619,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 4
     m_ConditionEvent: YMove
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isGrounded
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1575981180844791270}
   m_Solo: 0
@@ -644,6 +647,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: YMove
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isGrounded
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5000689593550719765}
   m_Solo: 0
@@ -655,7 +661,7 @@ AnimatorStateTransition:
   m_ExitTime: 0
   m_HasExitTime: 1
   m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_InterruptionSource: 1
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &3816537022892698352

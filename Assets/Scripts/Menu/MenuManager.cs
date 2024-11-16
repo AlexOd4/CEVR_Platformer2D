@@ -46,24 +46,12 @@ public class MenuManager : MonoBehaviour
         GameManager.Instance.FindChildByTag(switchPanel.transform, "SelectedButton").gameObject.GetComponent<Button>().Select();
     }
 
-    public void ChangeSceneWithAnimation(String level)
+    public void ChangeSceneWithAnimation(int level)
     {
-        GameManager.LevelSelection levelSelected = GameManager.LevelSelection.None; 
-        if(level == "level01")
-        {
-            levelSelected = GameManager.LevelSelection.Level01;
-        }
-        else if (level == "level02")
-        {
-            levelSelected = GameManager.LevelSelection.Level02;
-        }
-        else if (level == "level03")
-        {
-            levelSelected = GameManager.LevelSelection.Level03;
-        }
-
+        GameManager.Instance.level = level;
+        print("antesDeCargar: " + GameManager.Instance.level);
+        GameManager.Instance.Save();
         anim.Play("ChangeScene_FadeIn");
-        GameManager.Instance.currentLevel = levelSelected;
     }
 
 

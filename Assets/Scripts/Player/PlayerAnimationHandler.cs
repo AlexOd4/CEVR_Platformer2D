@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class PlayerAnimationHandler : MonoBehaviour
     [SerializeField] private PlayerMovementController movePlayer;
     [SerializeField] private PlayerInputHandler inputPlayer;
     [SerializeField] private FloorCollisionController ground;
+    [SerializeField] private GameObject attackCollision;
     private Animator anim;
 
     [SerializeField] private GameObject arrow;
@@ -18,6 +20,11 @@ public class PlayerAnimationHandler : MonoBehaviour
     private void Start()
     {
         anim = this.gameObject.GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        attackCollision.SetActive(!ground.IsGrounded);
     }
 
     private void FixedUpdate()
@@ -37,7 +44,6 @@ public class PlayerAnimationHandler : MonoBehaviour
         if (inputPlayer.JumpMode)
         {
             arrow.SetActive(true);
-
             // Calculate the angle of the normalized Vector 2 and pass it to degrees
             float angle = Mathf.Atan2(inputPlayer.LookAt.y, inputPlayer.LookAt.x) * Mathf.Rad2Deg; 
             arrow.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90.0f));
@@ -49,6 +55,7 @@ public class PlayerAnimationHandler : MonoBehaviour
         else
         {
             arrow.SetActive(false);
+            arrow.GetComponent<SpriteRenderer>().color = Color.gray;
         }
     }
 
@@ -66,6 +73,7 @@ public class PlayerAnimationHandler : MonoBehaviour
 
     public void IsEndJumpModeToTrue()
     {
+        arrow.GetComponent<SpriteRenderer>().color = Color.white;
         if (_extraForce >= 50) _extraForce = 50;
         else _extraForce += 5;
     }

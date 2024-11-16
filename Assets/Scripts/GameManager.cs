@@ -28,38 +28,8 @@ public class GameManager : MonoBehaviour
 
     #region Level Selector
 
-    public int level = 1;
+    public int level = 0;
 
-    public enum LevelSelection
-    {
-        None,
-        Level01,
-        Level02,
-        Level03,
-    }
-
-    public LevelSelection currentLevel;
-
-    public string GetSceneToCharge()
-    {
-        switch (currentLevel)
-        {
-            case LevelSelection.Level01:
-                if (level < 1)
-                    level = 1;
-                return "level";
-            case LevelSelection.Level02:
-                if (level < 2)
-                    level = 2;
-                return "level";
-            case LevelSelection.Level03:
-                if (level < 3)
-                    level = 3;
-                return "level";
-        }
-        level = 1;
-        return "none";
-    }
     #endregion
 
     public int globalScore = 0;
