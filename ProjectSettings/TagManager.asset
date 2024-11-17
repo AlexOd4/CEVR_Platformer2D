@@ -11,6 +11,7 @@ TagManager:
   - EnemyJumper
   - SelectedButton
   - HealObject
+  - EndPanel
   layers:
   - Default
   - TransparentFX

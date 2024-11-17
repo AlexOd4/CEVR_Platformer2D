@@ -10,7 +10,12 @@ public class LevelManagerController : MonoBehaviour
 
         print("DP " + GameManager.Instance.level);
 
-        if (GameManager.Instance.level == 1)
+
+        if(GameManager.Instance.level == 0)
+        {
+            playerObject.transform.position = new Vector3(4.01f, -1.30f, 0);
+        }
+        else if (GameManager.Instance.level == 1)
         {
             print("te muevo nohenque");
             playerObject.transform.position = new Vector3(4.01f, 115.468f, 0);
@@ -18,7 +23,7 @@ public class LevelManagerController : MonoBehaviour
         else if (GameManager.Instance.level == 2)
         {
             print("te muevo");
-            playerObject.transform.position = new Vector3(4.01f, 215.468f, 0);
+            playerObject.transform.position = new Vector3(4.01f, 313.48f, 0);
         }
     }
 }

@@ -6,6 +6,7 @@ public class EnemyJumperMovement : MonoBehaviour
     [SerializeField] private float jumpRate = 1.0f;
     [SerializeField] private int _damage = 5;
     [SerializeField] private int _pushForce = 1000;
+    [SerializeField] private Vector2 offsetPlayerPosition = new Vector2(0.0f, 15.0f);
 
     public int PushForce { get { return _pushForce; } }
     public int Damage { get { return _damage; } }
@@ -33,7 +34,7 @@ public class EnemyJumperMovement : MonoBehaviour
     private void Jump()
     {
         invoker = true;
-        rb2D.AddForce( jumpForce * (playerTransform.position - this.transform.position).normalized,
+        rb2D.AddForce( jumpForce * ((playerTransform.position + new Vector3(offsetPlayerPosition.x, offsetPlayerPosition.y, 0.0f)) - this.transform.position).normalized,
             ForceMode2D.Impulse);
     }
 }
