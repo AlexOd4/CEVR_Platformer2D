@@ -12,8 +12,9 @@ public class EnemyJumperTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerCollision"))
         {
-            print("tePiego Jumper");
             collision.transform.parent.transform.parent.GetComponent<HealthSystem>().Hit(enemyMove.Damage);
+            collision.transform.parent.transform.parent.GetComponent<PlayerMovementController>().StartSfx(
+                collision.transform.parent.transform.parent.GetComponent<PlayerMovementController>().audioDamage);
             collision.transform.parent.transform.parent.GetComponent<Rigidbody2D>().AddForce(
                 (collision.transform.parent.transform.parent.position - this.gameObject.transform.position).normalized * enemyMove.PushForce);
         }

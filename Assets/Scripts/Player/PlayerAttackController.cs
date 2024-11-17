@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerAttackController : MonoBehaviour
 {
+    [SerializeField] PlayerMovementController playerMove;
     [SerializeField] private int damage;
     [SerializeField] private GameObject particle;
 
@@ -23,8 +24,11 @@ public class PlayerAttackController : MonoBehaviour
 
             if (collision.gameObject.GetComponentInChildren<SpriteRenderer>() != null)
                 collision.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+            
             Instantiate(particle, collision.gameObject.transform.position, Quaternion.identity);
+            playerMove.StartSfx(playerMove.audioHit);
             collision.gameObject.GetComponent<HealthSystem>().Hit(damage);
+            
         }
     }
 }

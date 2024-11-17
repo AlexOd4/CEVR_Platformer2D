@@ -34,8 +34,8 @@ public class GameManager : MonoBehaviour
 
     public int globalScore = 0;
     public int currentScore = 0;
-    public int[] levelScore = new int[0];    
-    
+    public int[] levelScore = new int[0];
+
     public void Save()
     {
         SaveSystem.SavePlayer(this);

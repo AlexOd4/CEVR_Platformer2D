@@ -16,6 +16,10 @@ public class EnemyFollowerTrigger : MonoBehaviour
         {
             collision.transform.parent.transform.parent.GetComponent<HealthSystem>().Hit(enemyMove.Damage);
             enemyHealth.Kill();
+            
+            collision.transform.parent.transform.parent.GetComponent<PlayerMovementController>().StartSfx(
+       collision.transform.parent.transform.parent.GetComponent<PlayerMovementController>().audioDamage);
+
             collision.transform.parent.transform.parent.GetComponent<Rigidbody2D>().AddForce(
                 (collision.transform.parent.transform.parent.position - this.gameObject.transform.position).normalized * enemyMove.PushForce);
         }

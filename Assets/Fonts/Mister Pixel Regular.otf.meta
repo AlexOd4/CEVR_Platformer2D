@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: be857e90993103146a90ba13000988b7
+guid: 78a7806371b43f840aa751991439ebe2
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Origami Mommy
+  - VTF MisterPixel
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

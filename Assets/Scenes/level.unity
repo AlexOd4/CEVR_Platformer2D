@@ -303,8 +303,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e69748dfa740def4faa32504e953ef24, type: 2}
-  m_sharedMaterial: {fileID: 7989708871927923272, guid: e69748dfa740def4faa32504e953ef24, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a3b3e1253e666944f87a0bfabc4805e0, type: 2}
+  m_sharedMaterial: {fileID: -4545293698833918812, guid: a3b3e1253e666944f87a0bfabc4805e0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 32
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -526,8 +526,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Achieved Score : 00000'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e69748dfa740def4faa32504e953ef24, type: 2}
-  m_sharedMaterial: {fileID: 7989708871927923272, guid: e69748dfa740def4faa32504e953ef24, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a3b3e1253e666944f87a0bfabc4805e0, type: 2}
+  m_sharedMaterial: {fileID: -4545293698833918812, guid: a3b3e1253e666944f87a0bfabc4805e0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -551,13 +551,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56.8
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 32
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -30523,6 +30523,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -30680,6 +30681,103 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!82 &519420034
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9eeb34a79a572104d8bfc0347977910a, type: 3}
+  m_Resource: {fileID: 8300000, guid: 9eeb34a79a572104d8bfc0347977910a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &531023479
 GameObject:
   m_ObjectHideFlags: 0
@@ -30963,8 +31061,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Score: 00000'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e69748dfa740def4faa32504e953ef24, type: 2}
-  m_sharedMaterial: {fileID: 7989708871927923272, guid: e69748dfa740def4faa32504e953ef24, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a3b3e1253e666944f87a0bfabc4805e0, type: 2}
+  m_sharedMaterial: {fileID: -4545293698833918812, guid: a3b3e1253e666944f87a0bfabc4805e0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -30988,7 +31086,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.55
+  m_fontSize: 50.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -31954,8 +32052,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Achieved Score : 00000'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e69748dfa740def4faa32504e953ef24, type: 2}
-  m_sharedMaterial: {fileID: 7989708871927923272, guid: e69748dfa740def4faa32504e953ef24, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a3b3e1253e666944f87a0bfabc4805e0, type: 2}
+  m_sharedMaterial: {fileID: -4545293698833918812, guid: a3b3e1253e666944f87a0bfabc4805e0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -31979,7 +32077,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.4
+  m_fontSize: 39.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -37262,8 +37360,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Game Over
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e69748dfa740def4faa32504e953ef24, type: 2}
-  m_sharedMaterial: {fileID: 7989708871927923272, guid: e69748dfa740def4faa32504e953ef24, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a3b3e1253e666944f87a0bfabc4805e0, type: 2}
+  m_sharedMaterial: {fileID: -4545293698833918812, guid: a3b3e1253e666944f87a0bfabc4805e0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -39140,15 +39238,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: YOU WIN!!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e69748dfa740def4faa32504e953ef24, type: 2}
-  m_sharedMaterial: {fileID: 7989708871927923272, guid: e69748dfa740def4faa32504e953ef24, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a3b3e1253e666944f87a0bfabc4805e0, type: 2}
+  m_sharedMaterial: {fileID: -4545293698833918812, guid: a3b3e1253e666944f87a0bfabc4805e0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255435
-  m_fontColor: {r: 0.29495454, g: 1, b: 0, a: 1}
+    rgba: 4285771354
+  m_fontColor: {r: 0.3529412, g: 0.68235296, b: 0.45098042, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -39826,10 +39924,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4270420241857334585, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
-      propertyPath: particle
-      value: 
-      objectReference: {fileID: 2003132619185740864, guid: acd940846f4bb3641b0d232114479d7f, type: 3}
     - target: {fileID: 4994951537262389633, guid: 9753a71a843425d4c87b3481a41e879c, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -40027,8 +40121,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e69748dfa740def4faa32504e953ef24, type: 2}
-  m_sharedMaterial: {fileID: 7989708871927923272, guid: e69748dfa740def4faa32504e953ef24, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a3b3e1253e666944f87a0bfabc4805e0, type: 2}
+  m_sharedMaterial: {fileID: -4545293698833918812, guid: a3b3e1253e666944f87a0bfabc4805e0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -40058,7 +40152,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 32
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
