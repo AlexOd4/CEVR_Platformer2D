@@ -57,6 +57,9 @@ public class EnemyFollowerMovement : MonoBehaviour
             enemyDirection = (patrolPoints[patrolIndex].position - this.transform.position).normalized;
         }
 
+        
+        GetComponentInChildren<SpriteRenderer>().flipX = (rb2D.linearVelocityX > 0);
+
         //We applyes the movement and direction of the Enemy
         rb2D.linearVelocity =  enemyDirection * speed * Time.deltaTime;
     }

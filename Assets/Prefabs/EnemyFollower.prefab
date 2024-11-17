@@ -144,7 +144,8 @@ MonoBehaviour:
   speed: 50
   chaseSpeed: 100
   seekUpdate: 0.75
-  _damage: 5
+  _damage: 10
+  _pushForce: 1000
 --- !u!1 &1785757375320198795
 GameObject:
   m_ObjectHideFlags: 0
