@@ -8,6 +8,8 @@ public class HUDController : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] Slider heartSlider;
     [SerializeField] TMP_Text scoreText;
+    [SerializeField] TMP_Text failScoreText;
+    [SerializeField] TMP_Text winScoreText;
 
     [Header("HUDs")]
     [SerializeField] GameObject deathHud;
@@ -17,6 +19,8 @@ public class HUDController : MonoBehaviour
         heartSlider.value = player.GetComponent<HealthSystem>().Life;
 
         scoreText.text = "SCORE: " + GameManager.Instance.currentScore.ToString("D5");
+        failScoreText.text = "Achieved Score : " + GameManager.Instance.currentScore.ToString("D5");
+        winScoreText.text = "Achieved Score : " + GameManager.Instance.currentScore.ToString("D5");
 
         if (!(player.GetComponent<PlayerMovementController>().enabled && player.GetComponent<PlayerInputHandler>().enabled))
         {

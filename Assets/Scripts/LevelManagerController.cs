@@ -5,11 +5,9 @@ public class LevelManagerController : MonoBehaviour
     private GameObject playerObject;
     private void Awake()
     {
+        //We Set player position depending of player position choice
         GameManager.Instance.Load();
         playerObject = GameObject.FindGameObjectWithTag("Player");
-
-        print("DP " + GameManager.Instance.level);
-
 
         if(GameManager.Instance.level == 0)
         {
@@ -17,12 +15,10 @@ public class LevelManagerController : MonoBehaviour
         }
         else if (GameManager.Instance.level == 1)
         {
-            print("te muevo nohenque");
             playerObject.transform.position = new Vector3(4.01f, 115.468f, 0);
         }
         else if (GameManager.Instance.level == 2)
         {
-            print("te muevo");
             playerObject.transform.position = new Vector3(4.01f, 313.48f, 0);
         }
     }

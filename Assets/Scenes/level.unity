@@ -1195,7 +1195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77bf48f71d4d2bf4e887d194fdde33a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelInt: 2
+  levelInt: 3
   isFinalLevel: 1
 --- !u!61 &344095901
 BoxCollider2D:
@@ -38512,6 +38512,8 @@ MonoBehaviour:
   player: {fileID: 1398410411}
   heartSlider: {fileID: 153680314}
   scoreText: {fileID: 611858848}
+  failScoreText: {fileID: 109302314}
+  winScoreText: {fileID: 939751035}
   deathHud: {fileID: 1132954012}
   playerHud: {fileID: 1120974811}
 --- !u!1001 &1358485556
@@ -42980,7 +42982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77bf48f71d4d2bf4e887d194fdde33a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelInt: 1
+  levelInt: 0
   isFinalLevel: 0
 --- !u!61 &1903100540
 BoxCollider2D:

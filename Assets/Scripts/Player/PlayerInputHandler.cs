@@ -1,4 +1,3 @@
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -44,6 +43,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (Gamepad.current != null && Gamepad.current.wasUpdatedThisFrame)
         {
+            //If you use Gamepad we take just the gamePadVector
             InputSystem.DisableDevice(Mouse.current);
             if (action.Look.ReadValue<Vector2>() != Vector2.zero)
             _lookAt = action.Look.ReadValue<Vector2>();
@@ -52,6 +52,7 @@ public class PlayerInputHandler : MonoBehaviour
         else if ((Mouse.current != null && Mouse.current.wasUpdatedThisFrame) || 
             (Touchscreen.current != null && Touchscreen.current.wasUpdatedThisFrame))
         {
+            //If you use the Moyse we take a vector between the player and the mouse
             InputSystem.EnableDevice(Mouse.current);
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(action.Look.ReadValue<Vector2>());
             Vector2 playerPosition = this.gameObject.transform.position;
@@ -61,7 +62,7 @@ public class PlayerInputHandler : MonoBehaviour
         else
         {
             _lookAt = Vector2.zero;
-            Debug.Log("ERROR INESPERADO NO USA NI TECLADO NI RATON");
+            Debug.Log("ERROR THERE IS NO MOUSE OR GAMEPAD INPUT");
         }
         _jump = action.Jump.IsPressed();
         

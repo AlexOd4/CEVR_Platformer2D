@@ -14,12 +14,21 @@ public class HealthSystem : MonoBehaviour
         _maxLife = life;
     }
 
+    /// <summary>
+    /// It heals the player/enemy
+    /// </summary>
+    /// <param name="healPoints"></param>
     public void Heal(int healPoints)
     {
         life += healPoints;
         Mathf.Clamp(life, 0, _maxLife);
     }
     
+
+    /// <summary>
+    /// used to hit any enemy or player
+    /// </summary>
+    /// <param name="hitDamage">The damage to be done</param>
     public void Hit(int hitDamage = 0)
     {
         life -= hitDamage;
@@ -60,12 +69,21 @@ public class HealthSystem : MonoBehaviour
 
 
     }
+
+    /// <summary>
+    /// Kills and comproves if is or not dead to destroy object
+    /// </summary>
     public void Kill() 
     {
         life = 0;
         Hit();
     }
 
+
+    /// <summary>
+    /// used To know if is or not dead
+    /// </summary>
+    /// <returns>True if Dead, False if not</returns>
     private bool isDead()
     {
         if (life <= 0) return true;

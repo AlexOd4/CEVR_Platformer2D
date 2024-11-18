@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -34,13 +36,22 @@ public class GameManager : MonoBehaviour
 
     public int globalScore = 0;
     public int currentScore = 0;
-    public int[] levelScore = new int[0];
 
+    public int levelScore01 = 0;
+    public int levelScore02 = 0;
+    public int levelScore03 = 0;
+
+    /// <summary>
+    /// Guarda los datos usando saveSystem
+    /// </summary>
     public void Save()
     {
         SaveSystem.SavePlayer(this);
     }
 
+    /// <summary>
+    /// Carga los datos guardados
+    /// </summary>
     public void Load()
     {
 
@@ -53,7 +64,9 @@ public class GameManager : MonoBehaviour
 
         level = data.level;
         globalScore = data.globalScore;
-        levelScore = data.levelScore;
+        levelScore01 = data.levelScore01;
+        levelScore02 = data.levelScore02;
+        levelScore03 = data.levelScore03;
     }
     
     

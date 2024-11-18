@@ -22,11 +22,17 @@ public class PlayerAttackController : MonoBehaviour
                 print(collision.gameObject.tag);
                 GameManager.Instance.currentScore += 200;
 
+            //Setting the color in red if the damage has been take and the enemy is not dead
             if (collision.gameObject.GetComponentInChildren<SpriteRenderer>() != null)
                 collision.GetComponentInChildren<SpriteRenderer>().color = Color.red;
             
+            //instance particles
             Instantiate(particle, collision.gameObject.transform.position, Quaternion.identity);
+            
+            //play the sound of hitting a enemy
             playerMove.StartSfx(playerMove.audioHit);
+
+            //We actually hit the enemy
             collision.gameObject.GetComponent<HealthSystem>().Hit(damage);
             
         }

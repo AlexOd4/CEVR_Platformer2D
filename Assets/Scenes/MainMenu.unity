@@ -3266,7 +3266,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1610067137}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1750423999}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1610067137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4401,6 +4413,11 @@ MonoBehaviour:
   - {fileID: 419135467}
   - {fileID: 1896496538}
   - {fileID: 1200616711}
+  levelScoreText:
+  - {fileID: 1234553187}
+  - {fileID: 1780256868}
+  - {fileID: 1733281270}
+  globalScoreText: {fileID: 249850711}
 --- !u!1 &1759331842
 GameObject:
   m_ObjectHideFlags: 0
@@ -5764,7 +5781,9 @@ MonoBehaviour:
   level: 0
   globalScore: 0
   currentScore: 0
-  levelScore: 
+  levelScore01: 0
+  levelScore02: 0
+  levelScore03: 0
 --- !u!4 &2044434825
 Transform:
   m_ObjectHideFlags: 0

@@ -4,7 +4,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
-
+    /// <summary>
+    /// Saves the presets in binary
+    /// </summary>
+    /// <param name="gameManager"></param>
     public static void SavePlayer (GameManager gameManager)
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -17,6 +20,10 @@ public static class SaveSystem
         stream.Close();
     }
 
+    /// <summary>
+    /// Load previous data
+    /// </summary>
+    /// <returns></returns>
     public static PlayerData LoadPlayer()
     {
         string path = Application.persistentDataPath + "/player.ode";

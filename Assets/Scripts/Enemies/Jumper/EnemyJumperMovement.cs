@@ -31,6 +31,10 @@ public class EnemyJumperMovement : MonoBehaviour
         }
     }
 
+    
+    /// <summary>
+    /// Se utiliza para que el enemigo salte
+    /// </summary>
     private void Jump()
     {
         invoker = true;
